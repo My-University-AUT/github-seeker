@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Github profile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" ></script>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: rgb(217, 215, 215);
+    }
+
+    .content {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+
+    .border-red {
+        border: 1px solid red;
+    }
+
+    .border-blue {
+        border: 1px solid blue;
+    }
+
+    .curvy-border-5 {
+        border: 3px solid gray;
+        border-radius: 10%;
+    }
+
+    .curvy-border-2 {
+        border: 2px solid gray;
+        border-radius: 3%;
+    }
+
+    .flex-row {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .flex-col {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .flex-col-center {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .line-height-2 {
+        line-height: 30px;
+    }
+
+    .me-5 {
+        margin-right: 20px;
+    }
+
+    .mb-5 {
+        margin-bottom: 20px;
+    }
+
+    .me-10 {
+        margin-right: 40px;
+    }
+
+    .me-20 {
+        margin-right: 80px;
+    }
+
+    .mb-10 {
+        margin-bottom: 40px;
+    }
+
+    .mb-20 {
+        margin-bottom: 80px;
+    }
+
+    .p-10 {
+        padding: 40px;
+    }
+
+    .p-20 {
+        padding: 80px;
+    }
+
+    .circle-image {
+        border-radius: 50%;
+        width: 200px;
+        height: auto;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .font-weight-bold {
+        font-weight: bold;
+    }
+
+    .bg-white {
+        background-color: azure;
+    }
+
+    .textarea {
+        padding: 5px;
+    }
+
+    .btn-primary-lg {
+        background-color: #008CBA;
+        color: white;
+        width: 100%;
+        padding: 5px 20px;
+        border: none;
+        border-radius: 5px;
+    }
+
+    .btn-primary-lg:hover {
+        background-color: rgb(184, 212, 212);
+        cursor: pointer;
+    }
+
+    .text-red {
+        color: red;
+    }
+
+    .d-hide {
+        display: none;
+    }
+</style>
+
+<body>
+    <div class="content">
+        <!-- <div class="flex-row p-20"> -->
+        <div class="flex-row p-10 curvy-border-5 bg-white">
+            <div class="me-20 p-10 curvy-border-5 flex-col">
+                <div class="mb-20 flex-row">
+                    <div class="me-10">
+                        <img id="github-profile" class="circle-image" src="./src/assets/profile.jpg" />
+                    </div>
+                    <div class="flex-col-center line-height-2">
+                        <div id="github-fullname" class="text-center font-weight-bold">
+                            Ali Nowrouzi
+                        </div>
+                        <div id="#github-blog" class="text-center font-weight-bold">
+                            github.com
+                        </div>
+                        <div id="github-location" class="text-center font-weight-bold">
+                            Tehran, Iran
+                        </div>
+                    </div>
+                </div>
+                <div id="github-bio" class="font-weight-bold">
+                    Bio
+                </div>
+            </div>
+            <div class="p-10 curvy-border-2 flex-col-center">
+                <div>
+                    <div class="text-center mb-10">
+                        <input type="text" id="username-textarea" class="textarea" placeholder="type username...">
+                        </input>
+                    </div>
+                    <div class="text-center mb-5">
+                        <button id="submit-btn" class="btn-primary-lg">Submit</button>
+                    </div>
+                    <div id="user-not-found-div" class="font-weight-bold text-red text-center d-hide">
+                        User not Found!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./src/index.js"></script>
+</body>
+
+</html>
