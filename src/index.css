@@ -1,0 +1,126 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(217, 215, 215);
+}
+
+.content {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.border-red {
+    border: 1px solid red;
+}
+
+.border-blue {
+    border: 1px solid blue;
+}
+
+.curvy-border-5 {
+    border: 3px solid gray;
+    border-radius: 10%;
+}
+
+.curvy-border-2 {
+    border: 2px solid gray;
+    border-radius: 3%;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-col-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.line-height-2 {
+    line-height: 30px;
+}
+
+.me-5 {
+    margin-right: 20px;
+}
+
+.mb-5 {
+    margin-bottom: 20px;
+}
+
+.me-10 {
+    margin-right: 40px;
+}
+
+.me-20 {
+    margin-right: 80px;
+}
+
+.mb-10 {
+    margin-bottom: 40px;
+}
+
+.mb-20 {
+    margin-bottom: 80px;
+}
+
+.p-10 {
+    padding: 40px;
+}
+
+.p-20 {
+    padding: 80px;
+}
+
+.circle-image {
+    border-radius: 50%;
+    width: 200px;
+    height: auto;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.font-weight-bold {
+    font-weight: bold;
+}
+
+.bg-white {
+    background-color: azure;
+}
+
+.textarea {
+    padding: 5px;
+}
+
+.btn-primary-lg {
+    background-color: #008CBA;
+    color: white;
+    width: 100%;
+    padding: 5px 20px;
+    border: none;
+    border-radius: 5px;
+}
+
+.btn-primary-lg:hover {
+    background-color: rgb(184, 212, 212);
+    cursor: pointer;
+}
+
+.text-red {
+    color: red;
+}
+
+.d-hide {
+    display: none;
+}
