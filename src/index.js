@@ -1,21 +1,26 @@
 function getProfileData(username) {
     const xmlHttp = new XMLHttpRequest();
     const theUrl = `https://api.github.com/users/${username}`
-    xmlHttp.open("GET", theUrl, false); // false for synchronous request
-    xmlHttp.send(null);
+    try {
+        xmlHttp.open("GET", theUrl, false); // false for synchronous request
+        xmlHttp.send(null);
 
-    const parsedResult = JSON.parse(xmlHttp.responseText)
+        const parsedResult = JSON.parse(xmlHttp.responseText)
 
-    const result = {
-        username: parsedResult.login,
-        avatar: parsedResult.avatar_url,
-        fullName: parsedResult.name,
-        location: parsedResult.location,
-        bio: parsedResult.bio,
-        blog: parsedResult.blog
+        const result = {
+            username: parsedResult.login,
+            avatar: parsedResult.avatar_url,
+            fullName: parsedResult.name,
+            location: parsedResult.location,
+            bio: parsedResult.bio,
+            blog: parsedResult.blog
+        }
+        console.log(result);
+        return result
+    } catch(err) {
+        $("#error-div").text("Server error!!")
+        $("#error-div").removeClass("d-hide")
     }
-    console.log(result);
-    return result
 }
 
 function setProfileData(data) {
@@ -35,8 +40,19 @@ function setProfileData(data) {
     $('#github-location').text(location)
     $('#github-blog').text(blog)
     $('#github-profile').attr("src", avatar);
+}
 
+function getFromStorage(username) {
+    const stringifiedResult = window.localStorage.getItem(username)
+    if (!stringifiedResult) {
+        return undefined
+    }
+    const parsedResult = JSON.parse(stringifiedResult)
+    return parsedResult
+}
 
+function setInStorage(username, value) {
+    window.localStorage.setItem(username, value)
 }
 
 const data = getProfileData("alinowrouzii")
@@ -45,17 +61,24 @@ setProfileData(data)
 
 $("#submit-btn").click(function () {
     const eneteredUsername = $("#username-textarea").val()
-    console.log("hi", eneteredUsername)
     $("#username-textarea").val("")
-    const data = getProfileData(eneteredUsername)
-    console.log("here is data", eneteredUsername, data)
+
+    let data = getFromStorage(eneteredUsername)
+    console.log("here is data from storage", eneteredUsername, data)
+    if(!data) {
+        // if data not exist in storage
+        data = getProfileData(eneteredUsername)
+        console.log("here is data from api", eneteredUsername, data)
+    }
     if(!data.username){
         // show user not found to user
-        $("#user-not-found-div").removeClass("d-hide")
+        $("#error-div").text("User not Found!")
+        $("#error-div").removeClass("d-hide")
         console.log("not found!!")
         return
     }
-
-    $("#user-not-found-div").addClass("d-hide")
+    const stringifiedResult = JSON.stringify(data)
+    setInStorage(eneteredUsername, stringifiedResult)
+    $("#error-div").addClass("d-hide")
     setProfileData(data)
 });
