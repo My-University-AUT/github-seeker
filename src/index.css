@@ -1,6 +1,9 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: rgb(217, 215, 215);
+    /* background-color: rgb(217, 215, 215); */
+    background-image: url("./assets/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .content {
@@ -20,13 +23,8 @@ body {
 }
 
 .curvy-border-5 {
-    border: 3px solid gray;
-    border-radius: 10%;
-}
-
-.curvy-border-2 {
-    border: 2px solid gray;
-    border-radius: 3%;
+    border: 1px solid gray;
+    border-radius: 10px;
 }
 
 .flex-row {
@@ -99,15 +97,23 @@ body {
     background-color: azure;
 }
 
+.bg-transparent {
+    background-color: transparent;
+    backdrop-filter: blur(20px);
+}
+
 .textarea {
-    padding: 5px;
+    padding: 10px;
+    border: none;
+    outline: none;
+    caret-color: blue;
 }
 
 .btn-primary-lg {
     background-color: #008CBA;
     color: white;
     width: 100%;
-    padding: 5px 20px;
+    padding: 10px 15px;
     border: none;
     border-radius: 5px;
 }
@@ -123,4 +129,8 @@ body {
 
 .d-hide {
     display: none;
+}
+
+.render-whitespace {
+    white-space: pre-wrap;
 }

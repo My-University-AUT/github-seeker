@@ -55,6 +55,40 @@ function setInStorage(username, value) {
     window.localStorage.setItem(username, value)
 }
 
+
+function getFavoriteLanguages(username) {
+    const xmlHttp = new XMLHttpRequest();
+    const theUrl = `https://api.github.com/users/${username}/repos`
+    try {
+        xmlHttp.open("GET", theUrl, false); // false for synchronous request
+        xmlHttp.send(null);
+
+        const parsedResult = JSON.parse(xmlHttp.responseText)
+        result = {}
+        for(repo of parsedResult) {
+            const language = repo.language
+            if (language in result) {
+                result[language]++
+            } else {
+                result[language] = 1
+            }
+            delete result[null]
+        }
+        const finalResult = Object.entries(result)
+            .sort(([,a],[,b]) => b-a)
+            .reduce((r, [k, v]) => ({ ...r, [k]: v }), {});
+
+        console.log("parsed result", result)
+        console.log("here is the most favorite languages", Object.keys(finalResult))
+        return Object.keys(finalResult)
+    }
+    catch(err) {
+        console.log(err)
+        return []
+    }
+}
+const shit = getFavoriteLanguages("alinowrouzii")
+
 const data = getProfileData("alinowrouzii")
 setProfileData(data)
 
