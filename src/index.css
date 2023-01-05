@@ -6,6 +6,11 @@ body {
     background-size: cover;
 }
 
+/* position absolute makes the
+   tag fix relative to its parent.
+   this block makes the main tag to align 
+   horizentally and vertically
+*/
 .content {
     position: absolute;
     left: 50%;
@@ -14,6 +19,7 @@ body {
     transform: translate(-50%, -50%);
 }
 
+/* it is simple border */
 .border-red {
     border: 1px solid red;
 }
@@ -27,22 +33,40 @@ body {
     border-radius: 10px;
 }
 
+/* it is used for
+   to align items in
+   one row
+*/
 .flex-row {
     display: flex;
     flex-direction: row;
 }
 
+/* it is used for
+   to align items in
+   one column
+*/
 .flex-col {
     display: flex;
     flex-direction: column;
 }
 
+/* it is used
+   to order items in
+   one column and make
+   the elements to align
+   center horizentally
+*/
 .flex-col-center {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
+/* line-height specify
+   the line height of
+   text inside corresponding tag
+*/
 .line-height-2 {
     line-height: 30px;
 }
@@ -85,10 +109,14 @@ body {
     height: auto;
 }
 
+/* it centers the
+   text inside the div
+*/
 .text-center {
     text-align: center;
 }
 
+/* it is obvious */
 .font-weight-bold {
     font-weight: bold;
 }
@@ -97,6 +125,7 @@ body {
     background-color: azure;
 }
 
+/* making the background blur */
 .bg-transparent {
     background-color: transparent;
     backdrop-filter: blur(20px);
@@ -118,19 +147,30 @@ body {
     border-radius: 5px;
 }
 
+/* change the cursor from
+   default type to pointer.
+   each time user hovers on
+   particular tag, the cursor
+   changes to pointer
+*/
 .btn-primary-lg:hover {
     background-color: rgb(184, 212, 212);
     cursor: pointer;
 }
 
+/* change the text color */
 .text-red {
     color: red;
 }
 
+/* making the element hidden */
 .d-hide {
     display: none;
 }
 
+/* making to "\n" to
+   be rendered
+*/
 .render-whitespace {
     white-space: pre-wrap;
 }

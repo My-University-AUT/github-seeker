@@ -111,6 +111,7 @@ $("#submit-btn").click(function () {
         console.log("not found!!")
         return
     }
+    getFavoriteLanguages(eneteredUsername)
     const stringifiedResult = JSON.stringify(data)
     setInStorage(eneteredUsername, stringifiedResult)
     $("#error-div").addClass("d-hide")
